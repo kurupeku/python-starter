@@ -1,0 +1,33 @@
+{
+  "name": "Python Dev Container",
+
+  "dockerComposeFile": "../compose.yml",
+  "service": "app",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "njpwerner.autodocstring",
+        "formulahendry.code-runner",
+        "streetsidesoftware.code-spell-checker",
+        "hbenl.vscode-test-explorer",
+        "littlefoxteam.vscode-python-test-adapter",
+        "ms-vscode.test-adapter-converter",
+        "KevinRose.vsc-python-indent",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "christian-kohler.path-intellisense",
+        "ms-python.isort",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "VisualStudioExptTeam.vscodeintellicode-completions",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode",
+        "yzhang.markdown-all-in-one",
+        "shd101wyy.markdown-preview-enhanced",
+        "DavidAnson.vscode-markdownlint"
+      ]
+    }
+  }
+}
