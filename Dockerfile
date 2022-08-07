@@ -1,17 +1,17 @@
 FROM python:3-slim AS dev
 
+ENV POETRY_VIRTUALENVS_CREATE false
 ENV WORKDIR /app
 
-ENV LANG ja_JP.UTF-8
-ENV LANGUAGE ja_JP:jp
-ENV LC_ALL ja_JP.UTF-8
-ENV TZ JST-9
-ENV TERM xterm
+RUN apt-get update \
+  && apt-get upgrade -y \
+  && apt-get autoremove -y \
+  && apt-get install -y --no-install-recommends bash zsh vim neovim git curl ripgrep \
+  && apt-get -y clean \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y --no-install-recommends bash zsh neovim git lazygit curl jq ripgrep \
-  & pip install --upgrade pip setuptools pytest flake8 mypy black isort bandit python-lsp-server[all]
+RUN pip install --upgrade pip setuptools poetry pytest flake8 mypy black isort bandit python-lsp-server[all]
 
 WORKDIR ${WORKDIR}
-COPY ./requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
 COPY ./ ./
+RUN poetry install
